@@ -3,25 +3,41 @@ export const site = {
   role: "Cirurgiã-dentista",
   cro: "CRO 169695",
   slogan: "Cuidado que aparece no sorriso",
-  logo: { src: "/images/logo.jpg", width: 500, height: 500 },
+  logo: { src: "/images/logo.png", width: 399, height: 348 },
+  monogram: { src: "/images/logo-monograma.png", width: 330, height: 212 },
   address: {
-    street: "Endereço a confirmar",
-    district: "",
-    city: "São Paulo - SP",
+    street: "Rua Dom João VI, 15",
+    complement: "Sala 3",
+    city: "Ferraz de Vasconcelos",
+    state: "SP",
+    cep: "08502-010",
   },
+  hours: [
+    { days: "Segunda a sexta", time: "9h às 19h" },
+    { days: "Sábado", time: "9h às 15h" },
+    { days: "Domingo", time: "Fechado" },
+  ],
   whatsapp: {
-    number: "5511900000000",
-    display: "(11) 90000-0000",
+    number: "5511925922625",
+    display: "(11) 92592-2625",
   },
   instagram: {
-    handle: "@dralaura",
-    url: "https://www.instagram.com/",
+    handle: "@dra.laurahelena",
+    url: "https://www.instagram.com/dra.laurahelena/",
   },
 }
 
-export const fullAddress = [site.address.street, site.address.district, site.address.city].filter(Boolean).join(" - ")
+const { street, complement, city, state, cep } = site.address
 
-export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`
+export const addressLines = [`${street} - ${complement}`, `${city} - ${state}, CEP ${cep}`]
+
+export const fullAddress = addressLines.join(", ")
+
+const mapsQuery = encodeURIComponent(`${street}, ${city} - ${state}, ${cep}`)
+
+export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`
+
+export const mapsEmbedUrl = `https://maps.google.com/maps?q=${mapsQuery}&output=embed`
 
 const defaultMessage = `Olá, ${site.name}! Vim pelo site e quero agendar uma avaliação.`
 
@@ -31,5 +47,8 @@ export function whatsappUrl(message: string = defaultMessage) {
 
 export const navLinks = [
   { href: "/", label: "Início" },
-  { href: "/catalogo", label: "Catálogo" },
+  { href: "/#sobre", label: "Sobre" },
+  { href: "/catalogo", label: "Tratamentos" },
+  { href: "/#casos", label: "Antes e depois" },
+  { href: "/#contato", label: "Contato" },
 ]

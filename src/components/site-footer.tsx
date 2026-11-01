@@ -1,24 +1,23 @@
+import Image from "next/image"
 import Link from "next/link"
 
 import { InstagramIcon, WhatsappIcon } from "@/components/brand-icons"
-import { fullAddress, mapsUrl, navLinks, site, whatsappUrl } from "@/lib/site"
+import { addressLines, mapsUrl, navLinks, site, whatsappUrl } from "@/lib/site"
 
 export function SiteFooter() {
   return (
-    <footer className="bg-ink text-paper">
+    <footer className="border-t border-ink/10 bg-sand">
       <div className="container-page grid gap-12 py-20 md:grid-cols-[1.6fr_1fr_1.2fr]">
-        <div className="space-y-5">
-          <p className="font-heading text-4xl">{site.name}</p>
-          <p className="max-w-xs text-paper/60">
-            {site.role}. <span className="font-serif text-lg text-paper italic">{site.slogan}.</span>
-          </p>
+        <div className="space-y-6">
+          <Image src={site.logo.src} alt={`Logo ${site.name}`} width={site.logo.width} height={site.logo.height} className="w-44" />
+          <p className="max-w-xs font-serif text-xl text-ink/70 italic">{site.slogan}.</p>
           <div className="flex gap-2">
             <a
               href={site.instagram.url}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="flex size-11 items-center justify-center rounded-full border border-paper/15 transition hover:border-brand hover:text-brand"
+              className="flex size-11 items-center justify-center rounded-full border border-ink/15 transition hover:border-brand hover:text-brand-deep"
             >
               <InstagramIcon className="size-5" />
             </a>
@@ -27,7 +26,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="flex size-11 items-center justify-center rounded-full border border-paper/15 transition hover:border-brand hover:text-brand"
+              className="flex size-11 items-center justify-center rounded-full border border-ink/15 transition hover:border-brand hover:text-brand-deep"
             >
               <WhatsappIcon className="size-5" />
             </a>
@@ -35,11 +34,11 @@ export function SiteFooter() {
         </div>
 
         <div className="space-y-4">
-          <p className="text-xs font-semibold tracking-[0.25em] text-paper/40 uppercase">Navegação</p>
+          <p className="text-xs font-medium tracking-[0.25em] text-ink/45 uppercase">Navegação</p>
           <ul className="space-y-2.5">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="text-paper/80 transition-colors hover:text-brand">
+                <Link href={link.href} className="text-ink/75 transition-colors hover:text-brand-deep">
                   {link.label}
                 </Link>
               </li>
@@ -48,20 +47,37 @@ export function SiteFooter() {
         </div>
 
         <div className="space-y-4">
-          <p className="text-xs font-semibold tracking-[0.25em] text-paper/40 uppercase">Contato</p>
-          <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="block text-paper/80 hover:text-brand">
-            {fullAddress}
+          <p className="text-xs font-medium tracking-[0.25em] text-ink/45 uppercase">Contato</p>
+          <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="block text-ink/75 hover:text-brand-deep">
+            {addressLines.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
           </a>
-          <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="block text-paper/80 hover:text-brand">
+          <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="block text-ink/75 hover:text-brand-deep">
             {site.whatsapp.display}
           </a>
-          <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="block text-paper/80 hover:text-brand">
+          <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="block text-ink/75 hover:text-brand-deep">
             {site.instagram.handle}
           </a>
+          <dl className="space-y-1 pt-2 text-sm text-ink/60">
+            {site.hours.map((item) => (
+              <div key={item.days} className="flex justify-between gap-4">
+                <dt>{item.days}</dt>
+                <dd>{item.time}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
-      <div className="container-page border-t border-paper/10 py-6 text-xs text-paper/40">
-        © {new Date().getFullYear()} {site.name}. Todos os direitos reservados.
+      <div className="container-page flex flex-wrap justify-between gap-2 border-t border-ink/10 py-6 text-xs text-ink/45">
+        <span>
+          © {new Date().getFullYear()} {site.name}. Todos os direitos reservados.
+        </span>
+        <span>
+          {site.role} · {site.cro}
+        </span>
       </div>
     </footer>
   )
