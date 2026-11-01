@@ -20,7 +20,7 @@ const variants = {
 
 export function PillLink({ href, children, variant = "brand", external, icon, className }: PillLinkProps) {
   const classes = cn(
-    "group inline-flex h-12 items-center gap-2 rounded-full pr-1.5 pl-5 text-sm font-semibold transition-transform hover:scale-[1.02]",
+    "group inline-flex h-12 items-center justify-between gap-2 rounded-full pr-1.5 pl-5 text-sm font-semibold transition-transform hover:scale-[1.02]",
     variants[variant],
     className
   )

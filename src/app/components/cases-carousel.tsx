@@ -56,7 +56,7 @@ export function CasesCarousel() {
                   external
                   variant="ghost"
                   icon={<WhatsappIcon className="size-4" />}
-                  className="mt-8"
+                  className="mt-8 origin-left"
                 >
                   Quero agendar
                 </PillLink>

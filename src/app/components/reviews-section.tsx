@@ -44,7 +44,7 @@ export function ReviewsSection() {
               </p>
             </div>
           </Reveal>
-          <Reveal delay={200} className="mt-6 flex flex-wrap gap-3">
+          <Reveal delay={200} className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
             <PillLink href={googleReviews.writeUrl} external variant="ink" icon={<GoogleIcon className="size-4" />}>
               Avaliar no Google
             </PillLink>

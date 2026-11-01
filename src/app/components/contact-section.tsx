@@ -58,7 +58,7 @@ export function ContactSection() {
           </Reveal>
         </div>
 
-        <Reveal delay={400} className="mt-8 flex flex-wrap gap-3">
+        <Reveal delay={400} className="mt-8 grid gap-3 sm:inline-grid sm:grid-cols-2">
           <PillLink href={whatsappUrl()} external variant="ink" icon={<WhatsappIcon className="size-4" />}>
             Agendar avaliação
           </PillLink>

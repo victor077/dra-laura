@@ -52,7 +52,7 @@ export default function Home() {
                 Odontologia com respeito, empatia e transparência, no seu tempo e com o melhor protocolo para a sua saúde bucal.
               </p>
             </Reveal>
-            <Reveal immediate delay={360} className="mt-10 flex flex-wrap gap-3">
+            <Reveal immediate delay={360} className="mt-10 grid gap-3 sm:inline-grid sm:grid-cols-2">
               <PillLink href={whatsappUrl()} external variant="ink" icon={<WhatsappIcon className="size-4" />}>
                 Agendar avaliação
               </PillLink>
