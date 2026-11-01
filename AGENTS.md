@@ -85,7 +85,7 @@ Para alterar textos, contato ou tratamentos, edite o dado, não o JSX. A home mo
 
 Definido em `src/app/globals.css` (Tailwind v4 `@theme inline`). Visual clean em dourado e branco, a partir do logo:
 - `paper` (#fdfbf7, fundo), `ink` (#2a251f, texto e botões principais), `brand` (#bc9e5c, dourado do logo), `brand-deep` (#8a6d35, dourado para texto pequeno, legível no branco), `brand-soft`, `sand`. Tema claro, com uma seção escura (`bg-ink`) na biossegurança.
-- Dourado `brand` não tem contraste para texto pequeno sobre branco: use em títulos grandes, ícones e detalhes; para links e textos pequenos use `brand-deep`. Botão principal é `ink` (`PillLink variant="ink"`).
+- Dourado `brand` não tem contraste para texto pequeno sobre branco: use em títulos grandes, ícones e detalhes; para links e textos pequenos use `brand-deep`. Botão principal é `ink` (`PillLink variant="ink"`). No cabeçalho, "Agendar avaliação" é só contorno (sem fundo). O ícone do WhatsApp é verde (`#25d366`) só no cabeçalho, no menu do celular e no selo do botão flutuante; nos demais botões segue a cor do texto.
 - Fontes: `font-heading`/`font-serif` (Instrument Serif), `font-sans` (Jost).
 - Utilitários: `container-page`, `section-y`, `reveal` (usado por `<Reveal>`), `parallax` (scroll-driven, só onde houver suporte). Animações: `animate-spin-slow`, `animate-ken-burns`, `animate-marquee`, `animate-float`, `animate-gold-sheen` (faixa dourada que atravessa um elemento mascarado quase sem pausa, a cada 8,5 s). Tudo é desligado com `prefers-reduced-motion`.
 - Padrões visuais: cantos bem arredondados (`rounded-[2rem]`), bordas `border-ink/10`, títulos com trecho em itálico dourado via `<Accent>` (`components/section-heading.tsx`), foto do hero em arco com anel dourado girando atrás.

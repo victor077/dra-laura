@@ -38,18 +38,18 @@ export function SiteHeader() {
           scrolled || open ? "border-ink/10 bg-paper/80 shadow-sm backdrop-blur-xl" : "border-transparent bg-transparent"
         )}
       >
-        <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <Link href="/" className="flex shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
           <Image src={site.monogram.src} alt="" width={site.monogram.width} height={site.monogram.height} className="h-7 w-auto" />
-          <span className="font-heading text-2xl">{site.name}</span>
+          <span className="font-heading text-2xl whitespace-nowrap">{site.name}</span>
         </Link>
 
-        <nav className="hidden items-center gap-0.5 md:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Principal">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-full px-3.5 py-2 text-sm font-medium text-ink/65 transition-colors hover:text-ink",
+                "rounded-full px-3.5 py-2 text-sm font-medium whitespace-nowrap text-ink/65 transition-colors hover:text-ink",
                 isActive(pathname, link.href) && "bg-ink/5 text-ink"
               )}
             >
@@ -58,19 +58,19 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <a
             href={whatsappUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden h-10 items-center gap-2 rounded-full bg-ink px-4 text-sm font-medium text-paper transition hover:scale-[1.03] hover:bg-ink-soft sm:inline-flex"
+            className="hidden h-10 items-center gap-2 rounded-full border border-ink/70 px-4 text-sm font-medium whitespace-nowrap text-ink transition hover:bg-ink hover:text-paper sm:inline-flex"
           >
-            <WhatsappIcon className="size-4" />
+            <WhatsappIcon className="size-4 text-[#25d366]" />
             Agendar avaliação
           </a>
           <button
             type="button"
-            className="flex size-10 items-center justify-center rounded-full bg-ink/5 md:hidden"
+            className="flex size-10 items-center justify-center rounded-full bg-ink/5 lg:hidden"
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
@@ -81,7 +81,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 top-0 -z-10 flex flex-col bg-paper px-5 pt-24 pb-8 md:hidden">
+        <div className="fixed inset-0 top-0 -z-10 flex flex-col bg-paper px-5 pt-24 pb-8 lg:hidden">
           <nav className="flex flex-1 flex-col" aria-label="Principal">
             {navLinks.map((link) => (
               <Link
@@ -104,7 +104,7 @@ export function SiteHeader() {
             rel="noopener noreferrer"
             className="mt-6 flex h-14 items-center justify-center gap-2 rounded-full bg-ink font-medium text-paper"
           >
-            <WhatsappIcon className="size-5" />
+            <WhatsappIcon className="size-5 text-[#25d366]" />
             Agendar avaliação · {site.whatsapp.display}
           </a>
         </div>
