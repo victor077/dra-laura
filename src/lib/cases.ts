@@ -2,17 +2,19 @@ export type ClinicalCase = {
   slug: string
   title: string
   treatment: string
+  kind: "antes-depois" | "foto"
   image: { src: string; width: number; height: number }
   alt: string
   description: string
 }
 
-/* Fotos de antes (em cima) e depois (embaixo); `treatment` aponta para o slug em `catalog.ts` */
+/* Em "antes-depois" a foto é uma montagem com o antes na metade de cima e o depois na de baixo; `treatment` aponta para o slug em `catalog.ts` */
 export const clinicalCases: ClinicalCase[] = [
   {
     slug: "facetas-resina",
     title: "Facetas em resina composta",
     treatment: "facetas-resina",
+    kind: "antes-depois",
     image: { src: "/images/casos/facetas-resina.jpg", width: 1024, height: 1280 },
     alt: "Antes e depois de facetas em resina: dentes amarelados e assimétricos dão lugar a um sorriso branco, alinhado e uniforme",
     description:
@@ -22,6 +24,7 @@ export const clinicalCases: ClinicalCase[] = [
     slug: "clareamento-1",
     title: "Clareamento dental",
     treatment: "clareamento",
+    kind: "antes-depois",
     image: { src: "/images/casos/clareamento-1.jpg", width: 1080, height: 1350 },
     alt: "Antes e depois de clareamento dental em foto aproximada, com amostras de cor mostrando a mudança de amarelado para claro",
     description:
@@ -31,6 +34,7 @@ export const clinicalCases: ClinicalCase[] = [
     slug: "clareamento-2",
     title: "Clareamento dental",
     treatment: "clareamento",
+    kind: "antes-depois",
     image: { src: "/images/casos/clareamento-2.jpg", width: 1024, height: 1280 },
     alt: "Antes e depois de clareamento dental em sorriso masculino, com amostras de cor mostrando dentes mais claros após o tratamento",
     description:
@@ -40,6 +44,7 @@ export const clinicalCases: ClinicalCase[] = [
     slug: "restauracao-estetica",
     title: "Restauração estética em resina",
     treatment: "restauracao-estetica",
+    kind: "antes-depois",
     image: { src: "/images/casos/restauracao-estetica.jpg", width: 1024, height: 1280 },
     alt: "Antes e depois de restauração estética: dente da frente com desgaste e lascado reconstruído com forma e cor naturais",
     description:
@@ -49,6 +54,7 @@ export const clinicalCases: ClinicalCase[] = [
     slug: "reabilitacao-pediatrica",
     title: "Reabilitação oral pediátrica",
     treatment: "odontopediatria",
+    kind: "antes-depois",
     image: { src: "/images/casos/reabilitacao-pediatrica.jpg", width: 1080, height: 1350 },
     alt: "Antes e depois de reabilitação oral em criança: dentes da frente com lesões e manchas restaurados com resina na cor natural",
     description:
@@ -58,9 +64,12 @@ export const clinicalCases: ClinicalCase[] = [
     slug: "cirurgia",
     title: "Cirurgia oral",
     treatment: "cirurgia",
+    kind: "foto",
     image: { src: "/images/casos/cirurgia.jpg", width: 1200, height: 1600 },
     alt: "Duas profissionais paramentadas com avental, touca, máscara e óculos durante procedimento cirúrgico em ambiente estéril",
     description:
       "Cada procedimento cirúrgico na nossa clínica é planejado com o máximo rigor técnico, visando não apenas a resolução do caso clínico, mas fundamentalmente o conforto, a segurança e o bem-estar do paciente do início ao fim. Contamos com um planejamento personalizado para garantir abordagens precisas e minimamente invasivas, aliadas a um rigoroso controle de biossegurança que assegura um ambiente totalmente estéril e confiável. Unindo infraestrutura moderna, tecnologia de ponta e um atendimento humanizado, o nosso compromisso é devolver a qualidade de vida e a saúde bucal aos nossos pacientes, proporcionando uma experiência segura e acolhedora em todas as etapas da cirurgia.",
   },
 ]
+
+export const comparisonCases = clinicalCases.filter((item) => item.kind === "antes-depois")

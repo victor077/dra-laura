@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -37,8 +38,9 @@ export function SiteHeader() {
           scrolled || open ? "border-ink/10 bg-paper/80 shadow-sm backdrop-blur-xl" : "border-transparent bg-transparent"
         )}
       >
-        <Link href="/" className="font-heading text-2xl" onClick={() => setOpen(false)}>
-          {site.name}
+        <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+          <Image src={site.monogram.src} alt="" width={site.monogram.width} height={site.monogram.height} className="h-7 w-auto" />
+          <span className="font-heading text-2xl">{site.name}</span>
         </Link>
 
         <nav className="hidden items-center gap-0.5 md:flex" aria-label="Principal">
@@ -61,7 +63,7 @@ export function SiteHeader() {
             href={whatsappUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden h-10 items-center gap-2 rounded-full bg-brand px-4 text-sm font-semibold text-white transition-transform hover:scale-[1.03] sm:inline-flex"
+            className="hidden h-10 items-center gap-2 rounded-full bg-ink px-4 text-sm font-medium text-paper transition hover:scale-[1.03] hover:bg-ink-soft sm:inline-flex"
           >
             <WhatsappIcon className="size-4" />
             Agendar avaliação
@@ -88,7 +90,7 @@ export function SiteHeader() {
                 onClick={() => setOpen(false)}
                 className={cn(
                   "group flex items-center justify-between border-b border-ink/10 py-4 font-heading text-4xl",
-                  isActive(pathname, link.href) ? "text-brand" : "text-ink"
+                  isActive(pathname, link.href) ? "text-brand-deep" : "text-ink"
                 )}
               >
                 {link.label}
@@ -100,7 +102,7 @@ export function SiteHeader() {
             href={whatsappUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 flex h-14 items-center justify-center gap-2 rounded-full bg-brand font-semibold text-white"
+            className="mt-6 flex h-14 items-center justify-center gap-2 rounded-full bg-ink font-medium text-paper"
           >
             <WhatsappIcon className="size-5" />
             Agendar avaliação · {site.whatsapp.display}

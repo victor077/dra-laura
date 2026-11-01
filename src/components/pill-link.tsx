@@ -13,9 +13,9 @@ type PillLinkProps = {
 }
 
 const variants = {
-  brand: "bg-brand text-white",
-  ink: "bg-ink text-paper",
-  ghost: "border border-ink/15 text-ink hover:bg-ink/5",
+  brand: "bg-brand text-ink",
+  ink: "bg-ink text-paper hover:bg-ink-soft",
+  ghost: "border border-ink/15 text-ink hover:border-brand hover:bg-brand-soft",
 }
 
 export function PillLink({ href, children, variant = "brand", external, icon, className }: PillLinkProps) {
@@ -31,7 +31,7 @@ export function PillLink({ href, children, variant = "brand", external, icon, cl
       <span
         className={cn(
           "ml-2 flex size-9 items-center justify-center rounded-full transition-transform group-hover:rotate-45",
-          variant === "ghost" ? "bg-ink/5" : "bg-white/20"
+          variant === "ghost" ? "bg-ink/5" : variant === "ink" ? "bg-brand text-ink" : "bg-white/30"
         )}
       >
         <ArrowUpRight className="size-4" />
