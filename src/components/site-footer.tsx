@@ -1,7 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import { InstagramIcon, WhatsappIcon } from "@/components/brand-icons"
+import { GoogleIcon, InstagramIcon, WhatsappIcon } from "@/components/brand-icons"
+import { googleReviews } from "@/lib/reviews"
 import { addressLines, mapsUrl, navLinks, site, whatsappUrl } from "@/lib/site"
 
 export function SiteFooter() {
@@ -60,6 +61,10 @@ export function SiteFooter() {
           </a>
           <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="block text-ink/75 hover:text-brand-deep">
             {site.instagram.handle}
+          </a>
+          <a href={googleReviews.writeUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-ink/75 hover:text-brand-deep">
+            <GoogleIcon className="size-4" />
+            Avalie no Google
           </a>
           <dl className="space-y-1 pt-2 text-sm text-ink/60">
             {site.hours.map((item) => (
