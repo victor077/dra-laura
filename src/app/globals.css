@@ -44,6 +44,17 @@
   --animate-spin-slow: spin 24s linear infinite;
   --animate-ken-burns: ken-burns 14s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-marquee: marquee 40s linear infinite;
+  --animate-gold-sheen: gold-sheen 8.5s ease-in-out 1.5s infinite both;
+}
+
+@keyframes gold-sheen {
+  from {
+    background-position: 130% 0;
+  }
+  92%,
+  to {
+    background-position: -30% 0;
+  }
 }
 
 @keyframes float {

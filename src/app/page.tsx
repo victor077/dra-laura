@@ -65,14 +65,22 @@ export default function Home() {
           <Reveal immediate delay={200} className="relative isolate order-first mx-auto w-full max-w-[17rem] sm:max-w-sm lg:order-none lg:max-w-lg">
             <GoldRing className="absolute -top-[6%] -left-[6%] -z-10 aspect-square w-[112%]" />
             <div className="relative aspect-[4/5] overflow-hidden rounded-t-full rounded-b-[2.5rem] bg-sand">
-              <Image
-                src={about.photo.src}
-                alt={about.photo.alt}
-                fill
-                preload
-                sizes="(min-width: 1024px) 40vw, 90vw"
-                className="animate-ken-burns object-cover object-[50%_30%]"
-              />
+              <div className="absolute inset-0 animate-ken-burns">
+                <Image
+                  src={about.photo.src}
+                  alt={about.photo.alt}
+                  fill
+                  preload
+                  quality={90}
+                  sizes="(min-width: 1024px) 32rem, (min-width: 640px) 24rem, 17rem"
+                  className="object-cover"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 animate-gold-sheen bg-[linear-gradient(105deg,transparent_46%,var(--brand)_48.5%,#f3e2b3_50%,var(--brand)_51.5%,transparent_54%)] bg-size-[250%_100%] bg-no-repeat"
+                  style={{ mask: `url(${about.photo.lhMask}) center / 100% 100% no-repeat` }}
+                />
+              </div>
             </div>
             <RotatingBadge className="absolute -bottom-6 -left-8 size-24 sm:-bottom-8 sm:-left-10 sm:size-32" />
           </Reveal>

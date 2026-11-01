@@ -1,8 +1,9 @@
 export const about = {
   photo: {
-    src: "/images/dra-laura-consultorio.jpg",
-    width: 1280,
-    height: 853,
+    src: "/images/dra-laura-hero.jpg",
+    width: 1600,
+    height: 2000,
+    lhMask: "/images/dra-laura-hero-lh.png",
     alt: "Dra. Laura Helena sorrindo, sentada à mesa do consultório com o logo da clínica na parede",
   },
   intro:
