@@ -1,0 +1,10 @@
+---
+description: dra-laura — ler AGENTS.md antes de qualquer tarefa
+alwaysApply: true
+---
+
+# dra-laura
+
+Leia [`AGENTS.md`](AGENTS.md) antes de qualquer tarefa. Ele descreve stack, rotas, arquivos de dados, design system e o fluxo pelo WhatsApp.
+
+**Manutenção:** quando rotas, arquivos de dados, stack, design system ou fluxos principais mudarem de forma significativa, atualize [`AGENTS.md`](AGENTS.md) na mesma alteração.
