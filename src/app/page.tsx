@@ -103,7 +103,90 @@ export default function Home() {
 
       <Marquee items={treatments.map((treatment) => treatment.name)} className="py-14 text-ink/80" />
 
-      <section id="sobre" className="container-page section-y grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
+      <section id="casos" className="border-y border-ink/10 bg-white">
+        <div className="container-page section-y">
+          <Reveal className="mb-14">
+            <SectionHeading
+              eyebrow="Antes e depois"
+              title={
+                <>
+                  Resultados <Accent>reais</Accent>
+                </>
+              }
+              description="Casos atendidos pela Dra. Laura Helena. Arraste a linha sobre a foto para comparar."
+            />
+          </Reveal>
+          <Reveal delay={120}>
+            <CasesCarousel />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="container-page section-y pb-0">
+        <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Tratamentos"
+              title={
+                <>
+                  Cuidado para <Accent>cada sorriso</Accent>
+                </>
+              }
+            />
+          </Reveal>
+          <PillLink href="/catalogo" variant="ghost">
+            Ver todos
+          </PillLink>
+        </div>
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {treatments.slice(0, 3).map((treatment, index) => (
+            <Reveal as="li" key={treatment.slug} delay={index * 120}>
+              <TreatmentCard treatment={treatment} />
+            </Reveal>
+          ))}
+        </ul>
+      </section>
+
+      <section className="container-page section-y">
+        <div className="grid overflow-hidden rounded-[2.5rem] bg-ink text-paper lg:grid-cols-2">
+          <div className="relative min-h-96 overflow-hidden lg:min-h-full">
+            <Image
+              src={surgery.image.src}
+              alt={surgery.alt}
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="parallax object-cover"
+            />
+          </div>
+          <div className="p-8 sm:p-14 lg:py-20">
+            <Reveal>
+              <Eyebrow className="text-paper/60">Cirurgia e biossegurança</Eyebrow>
+            </Reveal>
+            <Reveal delay={100}>
+              <h2 className="mt-6 text-5xl sm:text-6xl">
+                Segurança <Accent>em cada etapa</Accent>
+              </h2>
+            </Reveal>
+            <Reveal delay={200}>
+              <ReadMore collapsedClassName="max-h-[6.5rem] lg:max-h-none" buttonClassName="text-brand" className="mt-6">
+                <p className="leading-relaxed text-paper/65">{surgery.description}</p>
+              </ReadMore>
+            </Reveal>
+            <ul className="mt-10 space-y-4">
+              {safetyPoints.map((point, index) => (
+                <Reveal as="li" key={point} delay={300 + index * 100} className="flex items-start gap-3">
+                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-brand text-ink">
+                    <Check className="size-3.5" strokeWidth={3} />
+                  </span>
+                  <span className="text-paper/85">{point}</span>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" className="container-page grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
         <div className="relative">
           <Reveal>
             <SectionHeading
@@ -145,90 +228,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container-page section-y pt-0">
-        <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Tratamentos"
-              title={
-                <>
-                  Cuidado para <Accent>cada sorriso</Accent>
-                </>
-              }
-            />
-          </Reveal>
-          <PillLink href="/catalogo" variant="ghost">
-            Ver todos
-          </PillLink>
-        </div>
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {treatments.slice(0, 3).map((treatment, index) => (
-            <Reveal as="li" key={treatment.slug} delay={index * 120}>
-              <TreatmentCard treatment={treatment} />
-            </Reveal>
-          ))}
-        </ul>
-      </section>
-
-      <section id="casos" className="border-y border-ink/10 bg-white">
-        <div className="container-page section-y">
-          <Reveal className="mb-14">
-            <SectionHeading
-              eyebrow="Antes e depois"
-              title={
-                <>
-                  Resultados <Accent>reais</Accent>
-                </>
-              }
-              description="Casos atendidos pela Dra. Laura Helena. Arraste a linha sobre a foto para comparar."
-            />
-          </Reveal>
-          <Reveal delay={120}>
-            <CasesCarousel />
-          </Reveal>
-        </div>
-      </section>
 
       <ReviewsSection />
-
-      <section className="container-page section-y">
-        <div className="grid overflow-hidden rounded-[2.5rem] bg-ink text-paper lg:grid-cols-2">
-          <div className="relative min-h-96 overflow-hidden lg:min-h-full">
-            <Image
-              src={surgery.image.src}
-              alt={surgery.alt}
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="parallax object-cover"
-            />
-          </div>
-          <div className="p-8 sm:p-14 lg:py-20">
-            <Reveal>
-              <Eyebrow className="text-paper/60">Cirurgia e biossegurança</Eyebrow>
-            </Reveal>
-            <Reveal delay={100}>
-              <h2 className="mt-6 text-5xl sm:text-6xl">
-                Segurança <Accent>em cada etapa</Accent>
-              </h2>
-            </Reveal>
-            <Reveal delay={200}>
-              <ReadMore collapsedClassName="max-h-[6.5rem] lg:max-h-none" buttonClassName="text-brand" className="mt-6">
-                <p className="leading-relaxed text-paper/65">{surgery.description}</p>
-              </ReadMore>
-            </Reveal>
-            <ul className="mt-10 space-y-4">
-              {safetyPoints.map((point, index) => (
-                <Reveal as="li" key={point} delay={300 + index * 100} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-brand text-ink">
-                    <Check className="size-3.5" strokeWidth={3} />
-                  </span>
-                  <span className="text-paper/85">{point}</span>
-                </Reveal>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
 
       <ContactSection />
 

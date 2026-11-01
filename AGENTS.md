@@ -48,7 +48,7 @@ dra-laura/
 │   ├── app/                  # Rotas (App Router)
 │   │   ├── layout.tsx        # Fontes, metadata global, Header/Footer/WhatsApp flutuante
 │   │   ├── globals.css       # Tema (cores, fontes, utilitários, animações)
-│   │   ├── page.tsx          # Home: hero, Sobre, tratamentos, antes e depois, biossegurança, contato, CTA
+│   │   ├── page.tsx          # Home: hero, antes e depois, tratamentos, biossegurança, Sobre, avaliações, contato, CTA
 │   │   ├── components/       # Componentes só da home (cases-carousel.tsx, contact-section.tsx)
 │   │   └── catalogo/         # Catálogo com filtro por categoria (components/catalog-list.tsx)
 │   ├── components/           # Componentes compartilhados do site
@@ -79,7 +79,7 @@ Para alterar textos, contato ou tratamentos, edite o dado, não o JSX. A home mo
 - Cada `TreatmentCard` abre o WhatsApp com a mensagem de `treatmentMessage()`.
 - `WhatsappFloat` aparece em todas as páginas: avatar ilustrado da Dra. num círculo de perfil com borda dourada fixa (sem animação no avatar), selo verde do WhatsApp e balão "Oi! Posso te ajudar?" que aparece no hover/foco e sozinho uma vez (de 3,5 s a 10 s após abrir a página). `CtaBanner` aceita `message` customizada.
 - Cada caso do carrossel de antes e depois tem um botão que abre o WhatsApp citando o caso.
-- Menu: Início, Sobre (`/#sobre`), Tratamentos (`/catalogo`), Antes e depois (`/#casos`), Avaliações (`/#avaliacoes`, depoimentos do Google com botões "Avaliar no Google" e "Ver no Google"; o rodapé também tem "Avalie no Google") e Contato (`/#contato`, com endereço, horário e mapa do Google embutido via `mapsEmbedUrl`).
+- Menu (na mesma ordem das seções da home): Início, Antes e depois (`/#casos`), Tratamentos (`/catalogo`), Sobre (`/#sobre`), Avaliações (`/#avaliacoes`, depoimentos do Google com botões "Avaliar no Google" e "Ver no Google"; o rodapé também tem "Avalie no Google") e Contato (`/#contato`, com endereço, horário e mapa do Google embutido via `mapsEmbedUrl`).
 
 ## 6. Design system
 

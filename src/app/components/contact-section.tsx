@@ -8,7 +8,7 @@ import { addressLines, mapsEmbedUrl, mapsUrl, site, whatsappUrl } from "@/lib/si
 
 export function ContactSection() {
   return (
-    <section id="contato" className="container-page section-y grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+    <section id="contato" className="container-page section-y grid pt-0 gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
       <div>
         <Reveal>
           <SectionHeading
