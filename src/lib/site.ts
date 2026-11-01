@@ -45,11 +45,18 @@ export function whatsappUrl(message: string = defaultMessage) {
   return `https://wa.me/${site.whatsapp.number}?text=${encodeURIComponent(message)}`
 }
 
-export const navLinks = [
+type NavLink = {
+  href: string
+  label: string
+  /** id da seção da home que, visível na tela, deixa o link ativo */
+  section?: string
+}
+
+export const navLinks: NavLink[] = [
   { href: "/", label: "Início" },
-  { href: "/#casos", label: "Antes e depois" },
-  { href: "/catalogo", label: "Tratamentos" },
-  { href: "/#sobre", label: "Sobre" },
-  { href: "/#avaliacoes", label: "Avaliações" },
-  { href: "/#contato", label: "Contato" },
+  { href: "/#casos", label: "Antes e depois", section: "casos" },
+  { href: "/catalogo", label: "Tratamentos", section: "tratamentos" },
+  { href: "/#sobre", label: "Sobre", section: "sobre" },
+  { href: "/#avaliacoes", label: "Avaliações", section: "avaliacoes" },
+  { href: "/#contato", label: "Contato", section: "contato" },
 ]

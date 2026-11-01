@@ -10,21 +10,46 @@ import { WhatsappIcon } from "@/components/brand-icons"
 import { cn } from "@/lib/utils"
 import { navLinks, site, whatsappUrl } from "@/lib/site"
 
-function isActive(pathname: string, href: string) {
-  return href === "/" ? pathname === "/" : pathname.startsWith(href)
+const homeSections = navLinks.flatMap((link) => (link.section ? [link.section] : []))
+
+function currentHomeSection() {
+  const line = window.innerHeight * 0.4
+  let current: string | null = null
+  let closest = -Infinity
+  for (const id of homeSections) {
+    const top = document.getElementById(id)?.getBoundingClientRect().top
+    if (top !== undefined && top <= line && top > closest) {
+      current = id
+      closest = top
+    }
+  }
+  return current
 }
 
 export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [section, setSection] = useState<string | null>(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24)
+      setSection(pathname === "/" ? currentHomeSection() : null)
+    }
     onScroll()
     window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+    window.addEventListener("resize", onScroll)
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      window.removeEventListener("resize", onScroll)
+    }
+  }, [pathname])
+
+  function isActive(link: (typeof navLinks)[number]) {
+    if (pathname === "/") return section ? link.section === section : link.href === "/"
+    return link.href !== "/" && !link.href.startsWith("/#") && pathname.startsWith(link.href)
+  }
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : ""
@@ -50,7 +75,7 @@ export function SiteHeader() {
               href={link.href}
               className={cn(
                 "rounded-full px-3.5 py-2 text-sm font-medium whitespace-nowrap text-ink/65 transition-colors hover:text-ink",
-                isActive(pathname, link.href) && "bg-ink/5 text-ink"
+                isActive(link) && "bg-ink/5 text-ink"
               )}
             >
               {link.label}
@@ -90,7 +115,7 @@ export function SiteHeader() {
                 onClick={() => setOpen(false)}
                 className={cn(
                   "group flex items-center justify-between border-b border-ink/10 py-4 font-heading text-4xl",
-                  isActive(pathname, link.href) ? "text-brand-deep" : "text-ink"
+                  isActive(link) ? "text-brand-deep" : "text-ink"
                 )}
               >
                 {link.label}

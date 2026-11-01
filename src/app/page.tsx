@@ -122,7 +122,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container-page section-y pb-0">
+      <section id="tratamentos" className="container-page section-y pb-0">
         <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <Reveal>
             <SectionHeading
