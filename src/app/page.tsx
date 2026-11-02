@@ -18,6 +18,7 @@ import { site, whatsappUrl } from "@/lib/site"
 import { CasesCarousel } from "./components/cases-carousel"
 import { ContactSection } from "./components/contact-section"
 import { ReviewsSection } from "./components/reviews-section"
+import { ShadeSection } from "./components/shade-section"
 
 const credentialIcons = [GraduationCap, BookOpenCheck, Award]
 
@@ -121,6 +122,8 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      <ShadeSection />
 
       <section id="tratamentos" className="container-page section-y pb-0">
         <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">

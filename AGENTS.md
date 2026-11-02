@@ -48,8 +48,8 @@ dra-laura/
 │   ├── app/                  # Rotas (App Router)
 │   │   ├── layout.tsx        # Fontes, metadata global, Header/Footer/WhatsApp flutuante
 │   │   ├── globals.css       # Tema (cores, fontes, utilitários, animações)
-│   │   ├── page.tsx          # Home: hero, antes e depois, tratamentos, biossegurança, Sobre, avaliações, contato, CTA
-│   │   ├── components/       # Componentes só da home (cases-carousel.tsx, contact-section.tsx)
+│   │   ├── page.tsx          # Home: hero, antes e depois, escala de cor, tratamentos, biossegurança, Sobre, avaliações, contato, CTA
+│   │   ├── components/       # Componentes só da home (cases-carousel.tsx, shade-section.tsx, shade-carousel.tsx, reviews-section.tsx, contact-section.tsx)
 │   │   └── catalogo/         # Catálogo com filtro por categoria (components/catalog-list.tsx)
 │   ├── components/           # Componentes compartilhados do site
 │   │   └── ui/               # Primitivos shadcn (button, carousel)
@@ -65,7 +65,7 @@ Convenção: dados e componentes usados por uma única rota ficam **co-localizad
 |---------|----------|
 | `src/lib/site.ts` | Nome, profissão, CRO, logo, endereço, horário (`hours`), WhatsApp, Instagram, `navLinks`, helpers `whatsappUrl()`, `addressLines`, `fullAddress`, `mapsUrl` e `mapsEmbedUrl` |
 | `src/lib/catalog.ts` | `treatments: Treatment[]` (slug, nome, categoria, ícone, resumo, duração opcional), `categoryLabels`, `treatmentMessage()` |
-| `src/lib/cases.ts` | `clinicalCases: ClinicalCase[]` (foto, `alt`, texto, `kind` e `treatment` apontando para o slug do catálogo) e `comparisonCases` (só os de antes e depois, usados no carrossel). O caso `cirurgia` (`kind: "foto"`) alimenta a seção de biossegurança |
+| `src/lib/cases.ts` | `clinicalCases: ClinicalCase[]` (foto, `alt`, texto, `kind` e `treatment` apontando para o slug do catálogo) e `comparisonCases` (só os de antes e depois, usados no carrossel). O caso `cirurgia` (`kind: "foto"`) alimenta a seção de biossegurança. `shadeGuide` (foto `casos/escala-de-cor.jpg`, caso da Dra. com o mesmo sorriso nos tons BL1, BL2, BL4 e B1, texto e legenda de cada tom) alimenta a seção "Escolha o tom do seu sorriso" (`#tons`, `app/components/shade-section.tsx`), logo depois do antes e depois. No desktop aparece a montagem inteira com a lista dos tons; abaixo de `lg`, um carrossel (`shade-carousel.tsx`) com os recortes `casos/escala-de-cor-<tom>.jpg` (824×280, a faixa de cada tom na largura inteira, com a etiqueta; no BL1, que é mais baixo, a faixa preta de baixo foi esticada; o BL2 e o B1 começam na gengiva e foram completados com preto embaixo) e botões BL1/BL2/BL4/B1 |
 | `src/lib/about.ts` | Texto "Sobre" da Dra. Laura Helena, formação e foto do consultório |
 | `src/lib/reviews.ts` | `googleReviews` (nota, total, link do perfil e link "escrever avaliação", ambos pelo Place ID) e `testimonials` (avaliações copiadas do Google Maps, com nome abreviado). Nota e total são atualizados à mão |
 
@@ -98,7 +98,7 @@ Componentes compartilhados: `SectionHeading`/`Accent`/`Eyebrow`, `PillLink`, `Ct
 
 ## 7. Diretrizes
 
-- **Server Components por padrão.** Só use `"use client"` quando precisar de estado, efeitos ou eventos (hoje: header, filtro do catálogo, `Reveal`, `ReadMore`, `BeforeAfter`, `WhatsappFloat` e carrossel de casos).
+- **Server Components por padrão.** Só use `"use client"` quando precisar de estado, efeitos ou eventos (hoje: header, filtro do catálogo, `Reveal`, `ReadMore`, `BeforeAfter`, `WhatsappFloat`, carrossel de casos e carrossel de tons).
 - APIs do Next 16: `params` é `Promise` (`await props.params`) e as páginas usam os tipos globais `PageProps<"/rota">` / `LayoutProps<"/">`.
 - Imagens sempre com `next/image` e `sizes` adequado; todo `alt` em português e descritivo.
 - Cada página exporta `metadata`; o `title` usa o template `"%s | Dra. Laura Helena"`.

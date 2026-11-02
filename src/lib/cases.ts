@@ -73,3 +73,17 @@ export const clinicalCases: ClinicalCase[] = [
 ]
 
 export const comparisonCases = clinicalCases.filter((item) => item.kind === "antes-depois")
+
+/* Montagem vertical com o mesmo sorriso em quatro tons, do mais branco (BL1) ao mais natural (B1); cada tom também tem um recorte 824×280 da sua faixa, com a etiqueta, para o carrossel do celular */
+export const shadeGuide = {
+  image: { src: "/images/casos/escala-de-cor.jpg", width: 824, height: 1024 },
+  alt: "Mesmo sorriso mostrado em quatro tons de cor, de cima para baixo: BL1, BL2, BL4 e B1, do branco mais intenso ao tom mais natural",
+  description:
+    "Na estética do sorriso, a cor é escolhida junto com você. A escala mostra como o mesmo sorriso fica em tons diferentes: dos brancos mais intensos aos mais naturais. Na avaliação, comparamos as opções com o tom da sua pele, o formato do rosto e o resultado que você imagina, para chegar a um sorriso bonito e que combine com você.",
+  shades: [
+    { code: "BL1", label: "O branco mais intenso da escala", image: { src: "/images/casos/escala-de-cor-bl1.jpg", width: 824, height: 280 } },
+    { code: "BL2", label: "Branco luminoso, um pouco mais suave", image: { src: "/images/casos/escala-de-cor-bl2.jpg", width: 824, height: 280 } },
+    { code: "BL4", label: "Branco natural, discreto e harmonioso", image: { src: "/images/casos/escala-de-cor-bl4.jpg", width: 824, height: 280 } },
+    { code: "B1", label: "O tom mais claro dos dentes naturais", image: { src: "/images/casos/escala-de-cor-b1.jpg", width: 824, height: 280 } },
+  ],
+}
