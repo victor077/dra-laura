@@ -81,7 +81,7 @@ Para alterar textos, contato ou tratamentos, edite o dado, não o JSX. A home mo
 - Cada `TreatmentCard` abre o WhatsApp com a mensagem de `treatmentMessage()`.
 - `WhatsappFloat` aparece em todas as páginas: avatar ilustrado da Dra. num círculo de perfil com borda dourada fixa (sem animação no avatar), selo verde do WhatsApp e balão "Oi! Posso te ajudar?" que aparece no hover/foco e sozinho uma vez (de 3,5 s a 10 s após abrir a página). `CtaBanner` aceita `message` customizada.
 - Cada caso do carrossel de antes e depois tem um botão que abre o WhatsApp citando o caso.
-- Menu (na mesma ordem das seções da home; na home o link ativo acompanha a seção visível pelo campo `section` de `navLinks`, e Tratamentos também acende na seção `#tratamentos`): Início, Antes e depois (`/#casos`), Tratamentos (`/catalogo`), Sobre (`/#sobre`), Avaliações (`/#avaliacoes`, depoimentos do Google com botões "Avaliar no Google" e "Ver no Google"; o rodapé também tem "Avalie no Google") e Contato (`/#contato`, com endereço, horário e mapa do Google embutido via `mapsEmbedUrl`).
+- Menu (na mesma ordem das seções da home; aparece em linha no cabeçalho só a partir de `xl`, abaixo disso fica no botão de menu, porque os sete itens não cabem em 1024 px; na home o link ativo acompanha a seção visível pelo campo `section` de `navLinks`, e Tratamentos também acende na seção `#tratamentos`): Início, Antes e depois (`/#casos`), Escala de cor (`/#tons`), Tratamentos (`/catalogo`), Sobre (`/#sobre`), Avaliações (`/#avaliacoes`, depoimentos do Google com botões "Avaliar no Google" e "Ver no Google"; o rodapé também tem "Avalie no Google") e Contato (`/#contato`, com endereço, horário e mapa do Google embutido via `mapsEmbedUrl`).
 
 ## 6. Design system
 

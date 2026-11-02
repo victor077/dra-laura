@@ -68,7 +68,7 @@ export function SiteHeader() {
           <span className="font-heading text-2xl whitespace-nowrap">{site.name}</span>
         </Link>
 
-        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Principal">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -95,7 +95,7 @@ export function SiteHeader() {
           </a>
           <button
             type="button"
-            className="flex size-10 items-center justify-center rounded-full bg-ink/5 lg:hidden"
+            className="flex size-10 items-center justify-center rounded-full bg-ink/5 xl:hidden"
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
@@ -106,7 +106,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 top-0 -z-10 flex flex-col bg-paper px-5 pt-24 pb-8 lg:hidden">
+        <div className="fixed inset-0 top-0 -z-10 flex flex-col bg-paper px-5 pt-24 pb-8 xl:hidden">
           <nav className="flex flex-1 flex-col" aria-label="Principal">
             {navLinks.map((link) => (
               <Link

@@ -55,6 +55,7 @@ type NavLink = {
 export const navLinks: NavLink[] = [
   { href: "/", label: "Início" },
   { href: "/#casos", label: "Antes e depois", section: "casos" },
+  { href: "/#tons", label: "Escala de cor", section: "tons" },
   { href: "/catalogo", label: "Tratamentos", section: "tratamentos" },
   { href: "/#sobre", label: "Sobre", section: "sobre" },
   { href: "/#avaliacoes", label: "Avaliações", section: "avaliacoes" },
