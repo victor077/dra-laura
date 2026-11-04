@@ -1,5 +1,6 @@
 export const site = {
   name: "Dra. Laura Helena",
+  url: "https://www.dra-laura-helena.com.br",
   role: "Cirurgiã-dentista",
   cro: "CRO 169695",
   slogan: "Cuidado que aparece no sorriso",

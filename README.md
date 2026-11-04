@@ -2,6 +2,8 @@
 
 Site catálogo da **Dra. Laura**, cirurgiã-dentista. Mostra os tratamentos e leva o visitante ao WhatsApp para agendar uma avaliação. Não há backend nem banco de dados: todo contato é um link `wa.me` com a mensagem pronta.
 
+No ar em [www.dra-laura-helena.com.br](https://www.dra-laura-helena.com.br), publicado na Vercel a cada push na `main`.
+
 ## Páginas
 
 | Rota | Conteúdo |

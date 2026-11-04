@@ -4,6 +4,7 @@ import { Instrument_Serif, Jost } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsappFloat } from "@/components/whatsapp-float";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const jost = Jost({
@@ -21,11 +22,17 @@ const instrument = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
     default: "Dra. Laura Helena | Cirurgiã-dentista",
     template: "%s | Dra. Laura Helena",
   },
   description: "Dra. Laura Helena, cirurgiã-dentista em Ferraz de Vasconcelos - SP. Clareamento, facetas em resina, restaurações, odontopediatria e cirurgia. Agende sua avaliação pelo WhatsApp.",
+  openGraph: {
+    siteName: site.name,
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -39,6 +39,8 @@ Mesma arquitetura do site Scooby Fight (`victor077/scoobyfight`).
 
 Não há testes automatizados. O código fica no repositório privado [`victor077/dra-laura`](https://github.com/victor077/dra-laura) (branch `main`).
 
+**Deploy:** Vercel (projeto `dra-laura`), com deploy automático a cada push na `main`. Domínio oficial `www.dra-laura-helena.com.br`; o domínio sem `www` redireciona (308) para ele e `dra-laura-orpin.vercel.app` continua ativo. O DNS fica no Registro.br (modo avançado): registro A `216.198.79.1` no domínio raiz e CNAME `www` → `4eb282ea2137dc00.vercel-dns-017.com`. A troca de servidores para os da Vercel foi recusada pelo Registro.br; e-mail no domínio exigiria registros MX nessa mesma zona.
+
 ## 3. Estrutura
 
 ```
@@ -63,7 +65,7 @@ Convenção: dados e componentes usados por uma única rota ficam **co-localizad
 
 | Arquivo | Conteúdo |
 |---------|----------|
-| `src/lib/site.ts` | Nome, profissão, CRO, logo, endereço, horário (`hours`), WhatsApp, Instagram, `navLinks`, helpers `whatsappUrl()`, `addressLines`, `fullAddress`, `mapsUrl` e `mapsEmbedUrl` |
+| `src/lib/site.ts` | Nome, `url` do site (usada no `metadataBase` do `layout.tsx`), profissão, CRO, logo, endereço, horário (`hours`), WhatsApp, Instagram, `navLinks`, helpers `whatsappUrl()`, `addressLines`, `fullAddress`, `mapsUrl` e `mapsEmbedUrl` |
 | `src/lib/catalog.ts` | `treatments: Treatment[]` (slug, nome, categoria, ícone, resumo, duração opcional), `categoryLabels`, `treatmentMessage()` |
 | `src/lib/cases.ts` | `clinicalCases: ClinicalCase[]` (foto, `alt`, texto, `kind` e `treatment` apontando para o slug do catálogo) e `comparisonCases` (só os de antes e depois, usados no carrossel). O caso `cirurgia` (`kind: "foto"`) alimenta a seção de biossegurança. `shadeGuide` (foto `casos/escala-de-cor.jpg`, caso da Dra. com o mesmo sorriso nos tons BL1, BL2, BL4 e B1, texto e legenda de cada tom) alimenta a seção "Escolha o tom do seu sorriso" (`#tons`, `app/components/shade-section.tsx`), logo depois do antes e depois. No desktop aparece a montagem inteira com a lista dos tons; abaixo de `lg`, um carrossel (`shade-carousel.tsx`) com os recortes `casos/escala-de-cor-<tom>.jpg` (824×280, a faixa de cada tom na largura inteira, com a etiqueta; no BL1, que é mais baixo, a faixa preta de baixo foi esticada; o BL2 e o B1 começam na gengiva e foram completados com preto embaixo) e botões BL1/BL2/BL4/B1 |
 | `src/lib/about.ts` | Texto "Sobre" da Dra. Laura Helena, formação e foto do consultório |
